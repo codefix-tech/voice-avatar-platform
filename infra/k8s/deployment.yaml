@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avatar-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: avatar-backend
+  template:
+    metadata:
+      labels:
+        app: avatar-backend
+    spec:
+      containers:
+      - name: avatar-backend
+        image: avatar-backend:latest
+        resources:
+          limits:
+            nvidia.com/gpu: 1 # Assigns 1 GPU per replica
+            memory: "16Gi"
+            cpu: "4"
+          requests:
+            nvidia.com/gpu: 1
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-a10 # Example constraints for GCP

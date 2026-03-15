@@ -1,0 +1,21 @@
+# /Users/nishantkumar/.gemini/antigravity/scratch/voice-avatar-platform/.gitignore
+
+# Node.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+.DS_Store
+
+# Python
+backend/__pycache__/
+backend/*.pyc
+backend/.venv/
+backend/venv/
+backend/env/
+backend/.env
+
+# Models & Large files
+backend/models/
+*.log
+*.bin
