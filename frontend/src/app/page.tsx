@@ -80,7 +80,8 @@ export default function Home() {
       setStatus("Ready to chat");
     } else {
       try {
-        const cap = new AudioCapture("ws://localhost:8000/ws", handleMessage, handleAudio);
+        const wsUrl = `ws://${window.location.hostname}:8000/ws`;
+        const cap = new AudioCapture(wsUrl, handleMessage, handleAudio);
         await cap.start();
 
         // Create analyzer for volume meter
